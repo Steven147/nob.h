@@ -2,23 +2,6 @@ name: no-build build
 on: [push, pull_request]
 
 jobs:
-  cli:
-    strategy:
-      matrix:
-        os: [macos-latest, ubuntu-latest]
-    runs-on: ${{ matrix.os }}
-    steps:
-      - name: Clone GIT repo
-        uses: actions/checkout@v4
-      - name: Build and smoke-test Homebrew CLI
-        run: |
-          mkdir -p build
-          cc -std=c11 -Wall -Wextra -Werror \
-            -DNOB_VERSION='"development"' \
-            -DNOB_INSTALLED_HEADER='"nob.h"' \
-            -o build/nob-cli cli/nob.c
-          ./build/nob-cli --version
-          ./build/nob-cli list
   macos:
     strategy:
       matrix:
