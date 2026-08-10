@@ -4,3 +4,4 @@ nob.exe
 nob.exe.old
 nob.obj
 build/
+.nob/

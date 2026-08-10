@@ -40,6 +40,27 @@ You know all these BS movements that supposedly remove the root cause of your pr
 
 The only file you need from here is [nob.h](https://raw.githubusercontent.com/tsoding/nob.h/refs/heads/main/nob.h). Just copy-paste it to your project and start using it. See [how_to/](how_to/) folder for examples.
 
+## Install with Homebrew
+
+This fork ships a small `nob` bootstrap command together with the header:
+
+```console
+$ brew install Steven147/nob/nob
+$ cd your-c-project
+$ nob init
+```
+
+Create a `nob.c` build recipe that includes the copied `nob.h`, then run it through the installed command:
+
+```console
+$ nob
+$ nob build
+```
+
+The command compiles `nob.c` to `.nob/nob` when `nob.c` or `nob.h` changes and forwards all arguments to the resulting build recipe. Use `nob init --force` to refresh the project copy of `nob.h` after upgrading the formula.
+
+The `.nob/` directory contains generated build output and should be added to your project's ignore file.
+
 ## NoBuild in Other Languages
 
 This is obviously applicable not only to C. You can implement the same kind of approach for other languages (apart from the languages that support this natively, of course). Here is few examples in the wild:
